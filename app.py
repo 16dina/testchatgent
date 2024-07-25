@@ -227,7 +227,8 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
 
         LAST IMPORTANT STEPS: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
-        - Provide the {resources} in bullet points. Format them so that {resources_names} are the titles of resource links.
+        - Provide the resources in bullet points: {resources}, formatted with the {resources_names} as links ({resources}).
+        
         """
 
         # prompt_2 = f"""
