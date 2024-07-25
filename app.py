@@ -210,9 +210,12 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         4. Resource names: {resources_names}
 
         YOUR ROLE: 
-        - You answer the user's question. However, chat normally if the user's prompt is not a question. 
+        - You answer the user's question. However, chat normally if the user's prompt is not a question.
+
+        INSTRUCTIONS:
         - If it is a question, generate a response using ONLY the given data.
         - If you do not have data, the only external link you are allowed to refer to when looking for an answer https://stad.gent
+        - If the question is asking about a date of an event and the data provided is from the past, say you do not know.
 
         REQUIREMENTS YOU MUST FOLLOW:
         1. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
