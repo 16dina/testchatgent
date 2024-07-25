@@ -230,7 +230,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         # - Provide the resources in bullet points, formatted with the resource names as the titles of the links.
         # """
 
-        prompt_s = f"""
+        prompt_2 = f"""
         Answer the user's question in a natural, non-hallucinated way. If the user's input is not a question, respond normally. If it's a question, follow these steps:
         1. Identify and understand the user's question ({user_question}).
         2. Retrieve relevant "besluiten" (decisions) from [https://stad.gent](https://stad.gent) and clean the data ({cleaned_decisions}).
