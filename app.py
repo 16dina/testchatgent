@@ -205,24 +205,22 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         prompt_2 = f"""
         If the user's prompt is not a question, chat normally. If it is a question, follow these steps:
 
-        1. User's question: {user_question}
-        2. Data (retrieved decisions only): {cleaned_decisions}
-        3. You can refer to resources of relevance on https://stad.gent but only there. Don't surf online.
-
-        Generate a response that answers their question without hallucinating. 
-        Answer in the language the user asked in (For example, if they ask in English, answer in English).
-
-        IMPORTANT NOTES:
-        - If the retrieved decisions' dates don't match the current date in year {today}, mention that they are old.
-        - If you don't have an answer or potential resources from the decisions, don't refer to any external links.
-        - Don't show empty lists in your answer.
+        1. Identify the user's question: {user_question}
+        2. Retrieve relevant decisions from https://stad.gent and clean the data: {cleaned_decisions}
+        3. Generate a response without hallucinating, using only the retrieved decisions and resources from the specified website.
+        4. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
+        
+        Important Notes:
+        - If the retrieved decisions' dates do not match the current year {today}, mention that they are from a previous year.
+        - If you do not have an answer or relevant resources from the decisions, do not refer to any external links.
+        - Do not show empty lists in your answer.
         - Use "besluiten" instead of "beslissingen" for decisions.
-        - Make sure to answer in the context of the year of the current date: {today}, unless a specific year is mentioned.
-        - Be friendly and explain in plain language, avoiding bureaucratic terms.
-
+        - Make sure to answer in the context of the current year: {today}, unless a specific year is mentioned.
+        - Be friendly and use plain language, avoiding bureaucratic terms.
+        
         Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
-        - Provide the resources in bullet points: {resources}, formatted with the {resources_names} as links ({resources}).
+        - Provide the resources in bullet points, formatted with the resource names as links: {resources}.
 
         """
         
