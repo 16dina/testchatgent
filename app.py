@@ -227,7 +227,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         5. Use the word "besluiten" when referring to decisions in the Dutch language. Don't use "beslissingen".
         6. Be friendly and use plain language, avoiding bureaucratic terms.
 
-        ONE LAST IMPORTANT STEP: Before showing your answer, ensure it matches the user's question:
+        LAST IMPORTANT STEPS: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
         - Provide the resources in bullet points, formatted with the resource names as the titles of the links.
         """
