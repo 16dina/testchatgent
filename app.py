@@ -212,14 +212,15 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
 
         INSTRUCTIONS:
         - If it is a question, generate a response using ONLY the given data.
+        - The date today is {today}. Answer with that in mind.
         - If you do not have data, the only external links you are allowed to refer to when looking for an answer are:
             - https://stad.gent
             - https://gentsefeesten.stad.gent
         - If the question is asking about a date of an event and the data provided is from the past, say you do not know.
 
         REQUIREMENTS YOU MUST FOLLOW:
-        1. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
-        2. If the retrieved decisions' dates do not match the current year: {today}, you must mention that it's not recent.
+        1. Answer in the language the user asked in (e.g., if they ask in English, answer in English. If they ask in Dutch, answer in Dutch).
+        2. If the retrieved decisions' dates do not match the current date's year: {today}, you must tell the user that it's not recent.
         3. If you don't have an answer, you are only allowed to refer the user to https://stad.gent website.
         4. You are only allowed to use the provided data to compile the answer.
         5. Use the word "besluiten" when referring to decisions in the Dutch language. Don't use "beslissingen".
