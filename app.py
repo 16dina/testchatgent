@@ -228,7 +228,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         LAST IMPORTANT STEPS YOU MUST FOLLOW: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
         - Provide the resources in bullet points: {resources}, formatted with the {resources_names} as links ({resources}).
-        - Answer in the language the user asked in (e.g., if they ask in English, answer in English. If they ask in Dutch, answer in Dutch).
+        - Answer in the language the user asked in: If they ask in English, answer in English. If they ask in Dutch, answer in Dutch.
         
         """
 
