@@ -203,11 +203,9 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         # """
 
         prompt_2 = f"""
-        RESOURCES TO USE:
+        ELEMENTS TO USE:
         1. User's question: {user_question}
         2. Data to use for answer: {cleaned_decisions}
-        3. Resources: {resources}
-        4. Resource names: {resources_names}
 
         YOUR ROLE: 
         - You answer the user's question. However, chat normally if the user's prompt is not a question.
@@ -229,7 +227,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
 
         LAST IMPORTANT STEPS: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
-        - Provide the resources in bullet points, formatted with the resource names as the titles of the links.
+        - Provide the {resources} in bullet points. Format them so that {resources_names} are the titles of resource links.
         """
 
         # prompt_2 = f"""
