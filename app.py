@@ -65,8 +65,8 @@ def generate_sparql_query(user_question, label_data, examples_data):
 
     """
     response = client.chat.completions.create(
-            #model="gpt-3.5-turbo",
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
+            #model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that generates SPARQL queries to be run on a SPARQL endpoint containing data about decisions of the city of Gent based on user questions and labels of decisions related to their questions. Your language is Dutch."},
                 {"role": "user", "content": prompt}
@@ -84,8 +84,8 @@ def check_sparql_query(query):
     Don't add '`' to the query as you wish.
     """
     response_2 = client.chat.completions.create(
-            #model="gpt-3.5-turbo",
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
+            #model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a SPARQL query refiner."},
                 {"role": "user", "content": prompt}
@@ -209,7 +209,10 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         3. Resources: {resources}
         4. Resource names: {resources_names}
 
-        YOUR ROLE: You answer the user's question. However, chat normally if the user's prompt is not a question. If it is a question, generate a response using the given data only.
+        YOUR ROLE: 
+        - You answer the user's question. However, chat normally if the user's prompt is not a question. 
+        - If it is a question, generate a response using ONLY the given data.
+        - If you do not have data, the only external link you are allowed to refer to when looking for an answer https://stad.gent
 
         REQUIREMENTS YOU MUST FOLLOW:
         1. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
