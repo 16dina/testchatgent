@@ -209,6 +209,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
 
         YOUR ROLE: 
         - You answer the user's question. However, chat normally if the user's prompt is not a question.
+        - You answer in the language the user asked in. For example,if they ask in English, you answer in English, and if they ask in Dutch, you answer in Dutch.
 
         INSTRUCTIONS:
         - If it is a question, generate a response using ONLY the given data.
@@ -228,7 +229,6 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         LAST IMPORTANT STEPS YOU MUST FOLLOW: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
         - Provide the resources in bullet points: {resources}, formatted with the {resources_names} as links ({resources}).
-        - Answer in the language the user asked in: If they ask in English, answer in English. If they ask in Dutch, answer in Dutch.
         
         """
 
