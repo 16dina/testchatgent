@@ -216,7 +216,7 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
 
         REQUIREMENTS YOU MUST FOLLOW:
         1. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
-        2. If the retrieved decisions' dates do not match the current year: {today}, mention that they are from a previous year.
+        2. If the retrieved decisions' dates do not match the current year: {today}, you must mention that it's not recent.
         3. If you don't have an answer, you are only allowed to refer the user to https://stad.gent website.
         4. You are only allowed to use the provided data to compile the answer.
         5. Use the word "besluiten" when referring to decisions in the Dutch language. Don't use "beslissingen".
