@@ -228,7 +228,8 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         #model="gpt-3.5-turbo",
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant for the citizens of Gent when they ask a question on the city's website regarding the decisions made by the city."}
+            {"role": "system", "content": "You are a helpful assistant for the citizens of Gent when they ask a question on the city's website regarding the decisions made by the city."},
+            {"role": "user", "content": prompt_2}
         ],
         temperature=0
         )
