@@ -203,33 +203,32 @@ if prompt := st.chat_input("Stel hier uw vraag..."):
         # """
 
         prompt_2 = f"""
-        If the user's prompt is not a question, chat normally. If it is a question, follow these steps:
+        RESOURCES TO USE:
+        1. User's question: {user_question}
+        2. Data to use for answer: {cleaned_decisions}
+        3. Resources: {resources}
+        4. Resource names: {resources_names}
 
-        1. Identify the user's question: {user_question}
-        2. Retrieve relevant decisions from https://stad.gent and clean the data: {cleaned_decisions}
-        3. Generate a response without hallucinating, using only the retrieved decisions and resources from the specified website.
-        4. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
-        
-        Important Notes:
-        - If the retrieved decisions' dates do not match the current year {today}, mention that they are from a previous year.
-        - If you do not have an answer or relevant resources from the decisions, do not refer to any external links.
-        - Do not show empty lists in your answer.
-        - Use "besluiten" instead of "beslissingen" for decisions.
-        - Make sure to answer in the context of the current year: {today}, unless a specific year is mentioned.
-        - Be friendly and use plain language, avoiding bureaucratic terms.
-        
-        Before showing your answer, ensure it matches the user's question:
+        YOUR ROLE: You answer the user's question. However, chat normally if the user's prompt is not a question. If it is a question, generate a response using the given data only.
+
+        REQUIREMENTS YOU MUST FOLLOW:
+        1. Answer in the language the user asked in (e.g., if they ask in English, answer in English).
+        2. If the retrieved decisions' dates do not match the current year: {today}, mention that they are from a previous year.
+        3. If you don't have an answer, you are only allowed to refer the user to https://stad.gent website.
+        4. You are only allowed to use the provided data to compile the answer.
+        5. Use the word "besluiten" when referring to decisions in the Dutch language. Don't use "beslissingen".
+        6. Be friendly and use plain language, avoiding bureaucratic terms.
+
+        ONE LAST IMPORTANT STEP: Before showing your answer, ensure it matches the user's question:
         - If it relates but doesn't answer exactly, mention: "It might relate but isn't necessarily the answer you want."
-        - Provide the resources in bullet points, formatted with the resource names as links: {resources}.
-
+        - Provide the resources in bullet points, formatted with the resource names as the titles of the links.
         """
         
         completion_2 = client.chat.completions.create(
         #model="gpt-3.5-turbo",
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant for the citizens of Gent when they ask a question on the city's website regarding the decisions made by the city. Be friendly, speak in easy to use terms. You use both the user's question and relevant decisions passed to you."},
-            {"role": "user", "content": prompt_2}
+            {"role": "system", "content": "You are a helpful assistant for the citizens of Gent when they ask a question on the city's website regarding the decisions made by the city."
         ],
         temperature=0
         )
